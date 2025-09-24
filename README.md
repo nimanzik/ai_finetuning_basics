@@ -18,7 +18,7 @@ All running in **Google Colab** with free GPU/TPU access — no setup headaches 
 
 This workshop was inspired in part by a talk given by **Ravin Kumar** during [Hugo Bowne-Anderson’s course, *Building LLM-Powered Applications for Data Scientists and Software Engineers*](https://maven.com/s/course/d56067f338).
 
-Next cohort starts **July 8** — use code `LLM10` for 10% off (valid until July 5, 2025)!
+Next cohort starts **November 3** — use code `LLM10` for 10% off (valid until Nov 2, 2025)!
 
 ---
 

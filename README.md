@@ -49,7 +49,7 @@ Here, you'll execute your first fine-tune. We’ll focus on the structured **foo
 
 ---
 
-### 03_Finetune_for_Style_Alien_NPC.ipynb: Fine-Tuning for Persona ([Colab notebook here](https://discord.com/channels/@me/1327102818099920997/1422426031008256000))
+### 03_Finetune_for_Style_Alien_NPC.ipynb: Fine-Tuning for Persona ([Colab notebook here](https://colab.research.google.com/drive/17ymVtMtyzYlIc3k8ACtoEaFXUATUvObJ?usp=sharing))
 
 Now we'll tackle a more creative task: teaching the model to adopt the **alien speech** persona. Simple accuracy doesn't work here, so we'll fine-tune for style and explore more advanced, qualitative evaluation techniques.
 

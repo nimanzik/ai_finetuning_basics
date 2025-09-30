@@ -62,9 +62,8 @@ Now we'll tackle a more creative task: teaching the model to adopt the **alien s
 ## 🚀 Getting Started
 
 1.  Clone this repository or download the files.
-2.  Open the `notebooks` directory.
-3.  Start with `01_Zero_to_Prompts.ipynb` in Google Colab and follow the instructions inside.
-4.  Proceed through the notebooks in order. Enjoy!
+2.  Start with `01_Zero_to_Prompts.ipynb` in Google Colab and follow the instructions inside.
+3.  Proceed through the notebooks in order. Enjoy!
 
 ---
 

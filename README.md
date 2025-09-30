@@ -4,15 +4,15 @@
 
 In this workshop, we’ll go hands-on with **fine-tuning small open-weight models** and, along the way, pick up deep learning foundations every builder should know.
 
-We’ll:  
-- 🧑‍🏫 Learn when to system prompt vs. fine-tune  
-- ⚖️ Compare small open-weight models vs. large API models  
-- 📉 Interpret training metrics and read **loss curves** like a practitioner  
-- 🧠 Understand embeddings, parameter sizes, and model architecture basics  
-- 🛠️ Fine-tune a **270M open-weight model** in Colab  
-- 📊 Evaluate whether your fine-tune is really working  
+We’ll:
+- 🧑‍🏫 Learn when to system prompt vs. fine-tune
+- ⚖️ Compare small open-weight models vs. large API models
+- 📉 Interpret training metrics and read **loss curves** like a practitioner
+- 🧠 Understand embeddings, parameter sizes, and model architecture basics
+- 🛠️ Fine-tune a **270M open-weight model** in Colab
+- 📊 Evaluate whether your fine-tune is really working (with both classic metrics and LLM-as-a-Judge)
 
-All running in **Google Colab** with free GPU/TPU access — no setup headaches and no prior deep learning experience required.
+All running in **Google Colab** with free GPU access: no setup headaches and no prior deep learning experience required.
 
 ---
 
@@ -24,68 +24,54 @@ Next cohort starts **November 3** — use code `LLM10` for 10% off (valid until 
 
 ## 🛠 Workshop Flow
 
-### ✅ Phase 0: Fast setup (Colab-first)
+This workshop is broken down into three hands-on Colab notebooks. Start with the first and work your way through!
 
-- Open the provided **Colab notebook** and select a GPU/TPU runtime.  
-- Verify you can load and prompt a small **~270M parameter** open-weight model.  
-- (Optional) Try locally if you have Apple Silicon or an NVIDIA GPU; CPU is possible but very slow.  
+### 01_Zero_to_Prompts.ipynb: The "Before" Picture ([Colab notebook here](https://colab.research.google.com/drive/1J2i45upTf-S3uvPetrpenvME-MRKfOq5?usp=sharing))
 
----
+First, we'll set up our environment and get a feel for the base model, `Gemma-270M`. We'll test its out-of-the-box capabilities on our two workshop tasks using only prompting, establishing a baseline and seeing where it falls short. This notebook answers the question: *Why do we need to fine-tune?*
 
-### ✅ Phase 1: Prompting vs. Fine-Tuning
-
-- Start with **system prompting** to push the model’s behavior.  
-- See where prompting breaks (easy to override, inconsistent).  
-- Discuss when it’s worth updating weights instead of crafting prompts (think: changing the model’s “prior”).  
+- ✅ **Setup**: Load the model in Colab and connect to a free GPU.
+- 🤔 **Prompting**: Test the model on two tasks:
+    1.  **Football Classification**: Can it tell Australian (AFL) from American (NFL) teams?
+    2.  **Alien Speech**: Can it role-play as a quirky alien NPC from a video game?
+- 📉 **Baseline**: See the limits of prompting and why we need a better way to change model behavior.
 
 ---
 
-### ✅ Phase 2: Hands-On Fine-Tuning (soccer vs. football + alien speech)
+### 02_Finetune_for_Classification_Football.ipynb: Your First Fine-Tune ([Colab notebook here](https://colab.research.google.com/drive/1gDwOhRFTpljxClx1p6oEEpOFUnrigqgv?usp=sharing))
 
-You’ll actually train a **~270M open-weight model** to specialize.
+Here, you'll execute your first fine-tune. We’ll focus on the structured **football classification** task. You'll learn the complete workflow: preparing a dataset, running the training loop, and evaluating the results with hard numbers. This is where you'll learn the core mechanics of training.
 
-- **Goal 1**: make the model consistently handle “**soccer**” vs. “**football**” distinctions  
-  (e.g., region-aware wording, rules/terms, examples).  
-- **Goal 2**: fine-tune the model on “**alien speech**” so it can translate synthetic alien-language snippets into human-readable text.  
-
-**Workflow in the notebook:**  
-- Prepare/inspect a small task-specific dataset.  
-- Run the fine-tuning loop.  
-- Save the updated weights/checkpoints.  
-- Compare **base vs. fine-tuned** model outputs on test prompts.  
+- 🗂️ **Data Prep**: Convert a simple list of teams into a conversational training dataset.
+- ⚙️ **Training**: Use the Hugging Face `SFTTrainer` to fine-tune the model.
+- 📈 **Deep Learning Essentials**: Learn to interpret **training and validation loss curves** to see if your model is actually learning.
+- 🎉 **Evaluation**: Re-run our test and see the dramatic improvement in classification accuracy.
 
 ---
 
-### ✅ Phase 3: Deep Learning Essentials (practitioner view)
+### 03_Finetune_for_Style_Alien_NPC.ipynb: Fine-Tuning for Persona ([Colab notebook here](https://discord.com/channels/@me/1327102818099920997/1422426031008256000))
 
-- Learn how to interpret **training curves** and **loss metrics**.  
-- Explore embeddings, parameter sizes, and model architecture basics.  
-- Debug common issues (overfitting, underfitting, unstable training).  
+Now we'll tackle a more creative task: teaching the model to adopt the **alien speech** persona. Simple accuracy doesn't work here, so we'll fine-tune for style and explore more advanced, qualitative evaluation techniques.
 
----
-
-### ✅ Phase 4: Evaluation
-
-- Go beyond vibes: measure whether your fine-tune is really working.  
-- Test on held-out prompts and structured evals.  
-- Revisit both fine-tune examples:  
-  - ⚽🏈 **Soccer vs. Football** — does the model consistently disambiguate?  
-  - 👽 **Alien Speech** — does the model reliably translate alien → human text?  
+- 👽 **Stylistic Fine-Tuning**: Train the model on dialogue to make it adopt a unique, consistent persona.
+- 🎯 **Good Overfitting**: See how "overfitting" can be a desirable outcome for locking in a specific character.
+- ⚖️ **LLM-as-a-Judge**: When a simple metric won't do, we'll explore how to use another LLM to evaluate our model's stylistic consistency.
 
 ---
 
 ## 🚀 Getting Started
 
-1. Open the provided **Colab notebooks** — no installation required.  
-2. Follow along with the code in your browser.  
-3. For power users: you can run locally with Apple or NVIDIA GPUs (optional).  
+1.  Clone this repository or download the files.
+2.  Open the `notebooks` directory.
+3.  Start with `01_Zero_to_Prompts.ipynb` in Google Colab and follow the instructions inside.
+4.  Proceed through the notebooks in order. Enjoy!
 
 ---
 
 ## ⚡ Requirements
-- ✅ Runs in **Colab** out of the box (free GPU/TPU).  
-- ⚡ Optional: run locally with your own Apple/NVIDIA GPU (CPU possible but very slow).  
-- 📦 No prior deep learning experience required — just curiosity.  
 
+- ✅ Runs in **Google Colab** out of the box (free GPU access recommended).
+- 📦 No prior deep learning experience required: just curiosity.
+- 🔑 A free [Hugging Face account](https://huggingface.co/join) is needed to download the Gemma model.
 
-## 📂 Repository Structure
+---
